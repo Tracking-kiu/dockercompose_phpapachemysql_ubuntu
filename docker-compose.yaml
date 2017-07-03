@@ -18,7 +18,5 @@ services:
         - ./data/apache/sites-enabled:/etc/apache2/sites-enabled
         - ./data/webroot:/var/www/html
       command: -e info -DFOREGROUND
-      links:
-        - php
       ports:
         - 1234:80

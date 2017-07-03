@@ -1,8 +1,8 @@
 version: '3'
 services:
   php:
+    build:
+      context: ./dockerfiles/php7
     image: phusionphp:5.6
     volumes:
       - ./data/webroot:/var/www/html
-    links:
-      - mysql
