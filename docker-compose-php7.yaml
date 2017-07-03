@@ -1,0 +1,10 @@
+version: '3'
+services:
+  php:
+      build:
+        context: ./dockerfiles/php56
+      image: phusionphp:7.0
+      volumes:
+        - ./data/webroot:/var/www/html
+      links:
+        - mysql

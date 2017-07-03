@@ -1,0 +1,24 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+    environment:
+      MYSQL_USER: "example"
+      MYSQL_PASSWORD: "example"
+      MYSQL_ROOT_PASSWORD: "example"
+      MYSQL_DATABASE: "example"
+  apache:
+      build:
+        context: ./dockerfiles/apache
+      image: phusionapache
+      volumes:
+        - ./data/apache/logs:/var/log/apache2
+        - ./data/apache/sites-enabled:/etc/apache2/sites-enabled
+        - ./data/webroot:/var/www/html
+      command: -e info -DFOREGROUND
+      links:
+        - php
+      ports:
+        - 1234:80
