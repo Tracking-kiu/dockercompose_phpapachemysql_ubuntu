@@ -2,7 +2,7 @@ version: '3'
 services:
   php:
       build:
-        context: ./dockerfiles/php56
+        context: ./dockerfiles/php7
       image: phusionphp:7.0
       volumes:
         - ./data/webroot:/var/www/html
